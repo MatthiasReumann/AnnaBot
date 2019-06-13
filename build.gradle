@@ -22,14 +22,34 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     implementation 'com.github.Seik.kotlin-telegram-bot:telegram:0.3.8'
-    compile 'com.github.uchuhimo:konf:master-SNAPSHOT'
+    compile 'com.uchuhimo:konf:0.13.3'
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'bot.MainKt'
+            attributes(
+                    'Main-Class': 'bot.MainKt',
+            )
     }
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+}
+
+task fatJar(type: Jar) {
+    manifest.from jar.manifest
+    classifier = 'all'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+artifacts {
+    archives fatJar
 }
 
 compileKotlin {

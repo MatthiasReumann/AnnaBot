@@ -1,5 +1,7 @@
 package bot
 
 fun main(args: Array<String>) {
-    println("Hello!")
+    val botConfig = BotConfiguration()
+    val config = botConfig.Get();
+    println(config<String>("bot.key"));
 }
