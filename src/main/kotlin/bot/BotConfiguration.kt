@@ -8,9 +8,14 @@ object BotSpec : ConfigSpec() {
 }
 
 class BotConfiguration{
-    fun Get(): Config{
-        val config = Config { addSpec(BotSpec) }
+    private var config: Config;
+
+    init {
+        config = Config { addSpec(BotSpec) }
                 .from.env()
-        return config
+    }
+
+    fun Get(key: String): String{
+        return config<String>(key);
     }
 }
