@@ -14,7 +14,7 @@ class Bot(private val config: BotConfiguration){
             token = config.Get("bot.key")
 
             dispatch {
-                text { bot, update ->
+                command("new") { bot, update, args ->
                     val text = update.message?.text ?: ""
                     val absences = ah.Get(text)
 
