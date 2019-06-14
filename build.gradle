@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-    implementation 'com.github.Seik.kotlin-telegram-bot:telegram:0.3.8'
+    compile 'com.github.Seik.kotlin-telegram-bot:telegram:0.3.8'
     compile 'com.uchuhimo:konf:0.13.3'
 }
 
