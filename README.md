@@ -9,5 +9,6 @@
 ## Not implemented yet
 - Files instead of string
 - Usernames
+- Absence hours in current week
 - Ranking (Least amount and greatest amount of absence hours)
 - Comparision to another user with username __x__
