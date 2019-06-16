@@ -1,4 +1,4 @@
-# [ANNA 👩‍🎓 - AbseNteeism Numbers Analyser](t.me/AnnaAbsenteeismBot) 
+# [ANNA 👩‍🎓 - AbseNteeism Numbers Analyser](https://t.me/AnnaAbsenteeismBot) 
 
 ## Usage
 
