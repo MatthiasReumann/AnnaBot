@@ -20,9 +20,10 @@ class Bot(private val config: BotConfiguration){
                     val absences = ah.Get(text)
 
                     val message = "\uD83D\uDE80 FEHLSTUNDEN \uD83D\uDE80\n\n" +
-                            "Entschuldigte Fehlstunden: ${absences.getAcceptedSum()}\n" +
-                            "Nicht entschuldigte Fehlstunden: ${absences.getNotAcceptedSum()}\n\n" +
-                            "Offene nicht entschuldigte (von 30): ${30 - absences.getNotAcceptedSum()}"
+                            "Entschuldigte Fehlstunden: ${absences.acceptedSum}\n" +
+                            "Nicht entschuldigte Fehlstunden: ${absences.notAcceptedSum}\n\n" +
+                            "Offene nicht entschuldigte (von 30): ${30 - absences.notAcceptedSum}\n" +
+                            "Aktuelle Woche: ${absences.currentWeekSum}"
 
 
                     bot.sendMessage(chatId = update.message!!.chat.id, text = message)
